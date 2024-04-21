@@ -1,7 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import EditDeleteDropDownComponent from "./EditDeleteDropDownComponent";
-import WorkspacePopupComponent from "./WorkspacePopupComponent";
+
 
 export default function SidebarComponent() {
   return (
@@ -14,7 +13,7 @@ export default function SidebarComponent() {
       {/* workspace */}
       <div className="flex justify-between mt-10">
         <h1 className="uppercase text-gray font-bold">workspace</h1>
-        <WorkspacePopupComponent />
+   
       </div>
 
       {/* each workspace */}
@@ -23,7 +22,6 @@ export default function SidebarComponent() {
         <div className="flex justify-between w-full pl-3">
           <p>HRD Design</p>
 
-          <EditDeleteDropDownComponent />
         </div>
       </div>
 

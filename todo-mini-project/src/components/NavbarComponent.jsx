@@ -8,7 +8,7 @@ export default function NavbarComponent() {
   const pathname = usePathname();
   return (
     <nav className={` border-b border-b-gray relative`}>
-      <div className="flex items-center py-4 pl-4 pr-10">
+      <div className="flex items-center py-4 pl-6">
         {/* <a
           href="https://flowbite.com/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
@@ -24,7 +24,7 @@ export default function NavbarComponent() {
         </a> */}
 
         <div className="w-full flex justify-between ">
-          <div className="flex md:order-2 gap-3 ">
+          <div className="flex md:order-2 gap-3 ml-[500px]">
             <button
               type="button"
               data-collapse-toggle="navbar-search"

@@ -1,15 +1,36 @@
 import Image from "next/image";
 import login from '../../../../public/login.png'
+import office from '../../../../public/office.png'
+import Link from "next/link";
  
  const LoginPage = () => {
+    async function handleLogin(userInfo) {
+        // define structure and password
+        const newUserInfo = {
+            email: userInfo.get("email"),
+            password: newUserInfo.get("password")
+        }
+        
+        // calling next auth service and passing " newUseInfo"
+        const res = signIn('credentials', {
+            redirect: false,
+            ...newUserInfo,
+
+        });
+      
+    }
     return (
         <main>
-            <section class="bg-gray-100 min-h-screen flex box-border justify-center items-center">
-                <div class="bg-[#C0C0C0] rounded-2xl flex max-w-3xl p-5 items-center">
+             <div class="flex items-start gap-3 p-5 border-b rounded-t">
+                        <Image src={office} width={25}/>
+                        <h1 class="text-xl font-semibold">
+                            My Office
+                        </h1>               
+                    </div>
+            <section class=" min-h-screen flex box-border justify-center items-center">
+                <div class=" rounded-2xl flex max-w-3xl p-5 items-center">
                     <div class="md:w-1/2 px-8">
                         <h2 class="font-bold text-3xl text-[#002D74]">Login</h2>
-                        <p class="text-sm mt-4 text-[#002D74]">If you already a member, easily log in now.</p>
-
                         <form action="" class="flex flex-col gap-4">
                             <input class="p-2 mt-8 rounded-xl border" type="email" name="email" placeholder="Email" />
                             <div class="relative">
@@ -37,9 +58,9 @@ import login from '../../../../public/login.png'
                             </div>
                             <button class="bg-[#002D74] text-white py-2 rounded-xl hover:scale-105 duration-300 hover:bg-[#206ab1] font-medium" type="submit">Login</button>
                         </form>
-                        <div class="mt-6  items-center text-gray-100">
+                        <div class="mt-6  items-center text-gray-400">
                             <hr class="border-gray-300" />
-                            <p class="text-center text-sm">OR</p>
+                            <p class="text-center text-sm ">OR</p>
                             <hr class="border-gray-300" />
                         </div>
                         <button class="bg-white border py-2 w-full rounded-xl mt-5 flex justify-center items-center text-sm hover:scale-105 duration-300 hover:bg-[#60a8bc4f] font-medium">
@@ -52,11 +73,10 @@ import login from '../../../../public/login.png'
 
                             Login with Google
                         </button>
-                        <div class="mt-10 text-sm border-b border-gray-500 py-5 playfair tooltip">Forget password?</div>
 
                         <div class="mt-4 text-sm flex justify-between items-center container-mr">
                             <p class="mr-3 md:mr-0 ">If you don't have an account..</p>
-                            <button class="hover:border register text-white bg-[#002D74] hover:border-gray-400 rounded-xl py-2 px-5 hover:scale-110 hover:bg-[#002c7424] font-semibold duration-300">Register</button>
+                            <Link href="/register"><button  class="hover:border register text-white bg-[#002D74] hover:border-gray-400 rounded-xl py-2 px-5 hover:scale-110 hover:bg-[#002c7424] font-semibold duration-300">Register</button></Link>
                         </div>
                     </div>
                     <div class="md:block hidden w-1/2">

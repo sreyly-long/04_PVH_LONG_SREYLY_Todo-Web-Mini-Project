@@ -9,20 +9,6 @@ export default function NavbarComponent() {
   return (
     <nav className={` border-b border-b-gray relative`}>
       <div className="flex items-center py-4 pl-6">
-        {/* <a
-          href="https://flowbite.com/"
-          className="flex items-center space-x-3 rtl:space-x-reverse"
-        >
-          <img
-            src="https://flowbite.com/docs/images/logo.svg"
-            className="h-8"
-            alt="Flowbite Logo"
-          />
-          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-            Flowbite
-          </span>
-        </a> */}
-
         <div className="w-full flex justify-between ">
           <div className="flex md:order-2 gap-3 ml-[500px]">
             <button
@@ -129,11 +115,11 @@ export default function NavbarComponent() {
             <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium rounded-3xl bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               <li>
                 <Link
-                  href="/todo-list"
+                  href="/todo_list"
                   className={` flex gap-2 py-2 px-3 rounded md:bg-transparent md:p-0 md:dark:text-blue-500`}
                   aria-current="page"
                 >
-                  {pathname === "/todo-list" ? (
+                  {pathname === "/todo_list" ? (
                     <Image
                       src="/assets/icons/list-filled-blue.svg"
                       width={18}
@@ -149,7 +135,7 @@ export default function NavbarComponent() {
 
                   <span
                     className={`${
-                      pathname === "/todo-list" ? "text-blue-700 " : "text-gray"
+                      pathname === "/todo_list" ? "text-blue-700 " : "text-gray"
                     } text-lg`}
                   >
                     List
@@ -159,11 +145,11 @@ export default function NavbarComponent() {
 
               <li>
                 <Link
-                  href="/todo-board"
+                  href="/todo_board"
                   className=" flex gap-2 py-2 px-3 text-gray rounded md:bg-transparent  md:p-0 md:dark:text-blue-500"
                   aria-current="page"
                 >
-                  {pathname === "/todo-board" ? (
+                  {pathname === "/todo_board" ? (
                     <Image
                       src="/assets/icons/board-filled-blue.svg"
                       width={18}
@@ -179,7 +165,7 @@ export default function NavbarComponent() {
 
                   <span
                     className={`${
-                      pathname === "/todo-board" ? "text-blue-700" : "text-gray"
+                      pathname === "/todo_board" ? "text-blue-700" : "text-gray"
                     } text-lg`}
                   >
                     Board
@@ -188,7 +174,7 @@ export default function NavbarComponent() {
               </li>
             </ul>
             
-            <div className={`${pathname === "/todo-list" ? "border-b-2 border-b-blue-700 absolute bottom-0 w-20 left-2" : "border-b-2 border-b-blue-700 absolute bottom-0 w-90 left-24"}`}></div>
+            <div className={`${pathname === "/todo_list" ? "border-b-2 border-b-blue-700 absolute bottom-0 w-20 left-2" : "border-b-2 border-b-blue-700 absolute bottom-0 w-90 left-24"}`}></div>
           </div>
         </div>
       </div>

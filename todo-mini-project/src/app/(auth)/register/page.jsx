@@ -30,8 +30,8 @@ const RegisterPage = () => {
                                     <input type="email" name="brand" id="brand" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="Info@gmail.com" required="" />
                                 </div>
                                 <div className="col-span-6 sm:col-span-3">
-                                    <label for="price" className="text-sm font-medium text-gray-900 block mb-2">Mobile No</label>
-                                    <input type="text" name="price" id="price" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="+855 12345" required="" />
+                                    <label for="price" className="text-sm font-medium text-gray-900 block mb-2">User Name</label>
+                                    <input type="text" name="price" id="price" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="Enter username..." required="" />
                                 </div>
                                 <div className="col-span-6 sm:col-span-3">
                                     <label for="brand" className="text-sm font-medium text-gray-900 block mb-2">Password</label>

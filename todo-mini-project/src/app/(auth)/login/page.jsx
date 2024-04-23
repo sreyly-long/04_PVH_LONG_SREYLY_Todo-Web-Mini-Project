@@ -1,10 +1,11 @@
 'use client'
 import Image from "next/image";
-import login from '../../../../public/login.png'
+import login from '../../../../public/assets/icons/login.svg'
 import office from '../../../../public/office.png'
-import Link from "next/link";
+
 import {signIn} from 'next-auth/react'
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
  
  const LoginPage = () => {
@@ -12,7 +13,7 @@ import { useRouter } from "next/navigation";
     //define handle login
     async function handleLogin(userInfo) {
         console.log("user info", userInfo);
-        // // define structure and password
+       // define structure and password
         const newUserInfo = {
             email: userInfo.get("email"),
             password: userInfo.get("password")
@@ -24,21 +25,24 @@ import { useRouter } from "next/navigation";
             ...newUserInfo,
 
         });
+        //checking is login success or not
         if(res.ok){
-            router.push("/")
+            router.push("/todo_list")
         }
         console.log(res)
       
     }
     return (
+
         <main>
              <div className="flex items-start gap-3 p-5 border-b rounded-t">
                         <Image src={office} width={25} alt="no image"/>
                         <h1 className="text-xl font-semibold">
                             My Office
                         </h1>               
-                    </div>
-            <section className=" min-h-screen flex box-border justify-center items-center">
+            </div>
+            <section className="flex box-border justify-center items-center">
+                
                 <div className=" rounded-2xl flex max-w-3xl p-5 items-center">
                     <div className="md:w-1/2 px-8">
                         <h2 className="font-bold text-3xl text-[#002D74]">Login</h2>
@@ -67,9 +71,9 @@ import { useRouter } from "next/navigation";
                                     </path>
                                 </svg>
                             </div>
-                            <Link href="/todo_list">
+                        
                                  <button className="w-full bg-[#002D74] text-white py-2 rounded-xl hover:scale-105 duration-300 hover:bg-[#206ab1] font-medium" type="submit">Login</button>
-                            </Link>
+                        
                           
                         </form>
                         <div className="mt-6  items-center text-gray-400">
@@ -90,7 +94,7 @@ import { useRouter } from "next/navigation";
 
                         <div className="mt-4 text-sm flex justify-between items-center container-mr">
                             <p className="mr-3 md:mr-0 ">If you don't have an account..</p>
-                            <Link href="/register"><button  className="hover:border register text-white bg-[#002D74] hover:border-gray-400 rounded-xl py-2 px-5 hover:scale-110 hover:bg-[#002c7424] font-semibold duration-300">Register</button></Link>
+                         <Link href="/register">  <button  className="hover:border register text-white bg-[#002D74] hover:border-gray-400 rounded-xl py-2 px-5 hover:scale-110 hover:bg-[#002c7424] font-semibold duration-300">Register</button></Link> 
                         </div>
                     </div>
                     <div className="md:block hidden w-1/2">
@@ -99,6 +103,8 @@ import { useRouter } from "next/navigation";
                 </div>
             </section>
         </main>
+          
+    
     )
 }
 export default LoginPage;

@@ -3,16 +3,18 @@ import register from '../../../../public/register.png'
 import office from '../../../../public/office.png'
 import Link from "next/link";
 
+
 const RegisterPage = () => {
+
     return (
         <main className="w-full  flex m-auto ">
             <section className="grid grid-cols-2 ">
                 <div className="bg-white  relative m-10 ">
                     <div className="flex items-start gap-3 p-5 border-b rounded-t">
-                        <Image src={office} width={25} alt="no image"/>
+                        <Image src={office} width={25} alt="no image" />
                         <h1 className="text-xl font-semibold">
                             My Office
-                        </h1>               
+                        </h1>
                     </div>
                     <div className="p-6 space-y-6">
                         <form action="#">
@@ -41,19 +43,19 @@ const RegisterPage = () => {
                                     <label for="price" className="text-sm font-medium text-gray-900 block mb-2">Confirm Password</label>
                                     <input type="password" name="price" id="price" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="xxxxxxx" required="" />
                                 </div>
-                              
+
                             </div>
                         </form>
                     </div>
 
                     <div className="p-6 border-t border-gray-200 rounded-b">
-                       <Link href="/login"> <button className="text-white bg-[#306BFF] hover:bg-[#5276d2] focus:ring-4 focus:ring-cyan-200 font-medium rounded-xl text-sm px-5 py-2.5 text-center" type="submit">Sign up</button></Link>
+                        <Link href="/login"> <button className="text-white bg-[#306BFF] hover:bg-[#5276d2] focus:ring-4 focus:ring-cyan-200 font-medium rounded-xl text-sm px-5 py-2.5 text-center" type="submit">Sign up</button></Link>
                     </div>
                 </div>
 
                 {/* display image */}
                 <div className="mt-[100px] flex m-auto">
-                    <Image src={register} width={400} height={390} alt="no image"/>
+                    <Image src={register} width={400} height={390} alt="no image" />
 
                 </div>
 

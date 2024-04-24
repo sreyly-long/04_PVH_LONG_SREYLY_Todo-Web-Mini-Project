@@ -1,12 +1,13 @@
-import { getAllTodoWorkSpaceService, insertTodoWorkSpace } from "@/app/service/todo.service";
+import { getAllTodoWorkSpaceService} from "@/app/service/todo.service";
 import Image from "next/image";
-import { ModalComponent } from "./ModalComponent";
-import Link from "next/link";
+import WorkspacePopupComponent from "./WorkspacePopupComponent";
+
 
 
 // Define the SidebarComponent function
 const SidebarComponent = async () => {
-
+  const workspaceData = await getAllTodoWorkSpaceService();
+  console.log("workspace", workspaceData);
 
   return (
     <main>
@@ -20,18 +21,18 @@ const SidebarComponent = async () => {
         {/* Workspace */}
         <div className="flex justify-between mt-10">
           <h1 className="uppercase text-gray font-bold">workspace</h1>
-          <ModalComponent/>   
+          <WorkspacePopupComponent/>  
         </div>
 
         {/* Render each workspace */}
         <div className="flex items-center mt-5 w-full">
           <div className="rounded-full w-4 h-4 bg-workingOn"></div>       
-            {/* {workspaceData.data.map((data)=>( */}
+            {/* {workspaceData.data.map((data)=>(
                 <div className="flex justify-between w-full pl-3" >
-                <p>Web Design</p>
+                <p>{data.workspaceName}</p>
                    <Image src={"/assets/icons/tabler_dots.svg"} width={25} height={30} alt="Not Found" />
                    </div>             
-            {/* ))}         */}
+             ))}     */}
         </div>
 
         {/* Favorite */}

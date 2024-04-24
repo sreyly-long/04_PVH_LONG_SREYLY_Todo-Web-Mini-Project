@@ -1,6 +1,7 @@
 import { loginService } from "@/app/service/auth.service";
 import nextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { redirect } from "next/dist/server/api-utils";
 
 
 export const authOption = {
@@ -17,31 +18,29 @@ export const authOption = {
 
                 //call login service
                 const login = await loginService(newUserInfo);
-                console.log(login)
+                console.log(login);
+                if(login.status === 400) {
+                    redirect("/register");
+                }
+                console.log("login",login)
                 return login;
             },
 
         }),
     ],
-
-
-    //use to set token into cookies
+    secret: process.env.NEXTAUTH_SECRET,
+    pages: {
+      signIn: "/login",
+    },
     callbacks: {
-        async jwt({ token, account }) {
-            // Persist the OAuth access_token to the token right after signin
-            if (account) {
-                token.accessToken = account.access_token
-            }
-            return token
-        },
-        async session({ session, token, user }) {
-            // Send properties to the client, like an access_token from a provider.
-            session.accessToken = token.accessToken
-            return session
-        }
-    }
-
-
-};
+      async jwt({ token, user }) {
+        return { ...token, ...user };
+      },
+      async session({ session, token }) {
+        session.user = token;
+        return session;
+      },
+    },
+  };
 const handler = nextAuth(authOption);
 export { handler as GET, handler as POST };

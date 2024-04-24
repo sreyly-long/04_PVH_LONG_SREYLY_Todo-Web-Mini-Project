@@ -2,7 +2,6 @@
 import Image from "next/image";
 import login from '../../../../public/assets/icons/login.svg'
 import office from '../../../../public/office.png'
-
 import {signIn} from 'next-auth/react'
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -22,14 +21,17 @@ import Link from "next/link";
         // calling next auth service and passing " newUseInfo"
         const res = await signIn('credentials', {
             redirect: false,
-            ...newUserInfo,
+            ...newUserInfo,          
 
         });
+        console.log("res in login",res)
         //checking is login success or not
         if(res.ok){
             router.push("/todo_list")
+        }else{
+            router.push("/register")
         }
-        console.log(res)
+      
       
     }
     return (
